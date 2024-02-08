@@ -13,7 +13,7 @@ export default function AddUser() {
     email: "",
   });
   
-  let { id ,name,inTime,logOut, email } = user;
+  let { id ,name, email } = user;
   
 
   const onInputChange = (e) => {
