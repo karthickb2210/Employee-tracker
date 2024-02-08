@@ -30,7 +30,7 @@ export default function AddUser() {
     
     e.preventDefault();
     setUser(user.inTime= currtime())
-    await axios.post("http://localhost:8080/user", user);
+    await axios.post("https://employee-tracker-backend-production-b1a1.up.railway.app/user", user);
     navigate("/");
   };
 

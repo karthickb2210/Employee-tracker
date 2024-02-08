@@ -16,7 +16,7 @@ function Logout() {
     async function handlelogout(id){
         
         user.logOut = currtime();
-        await axios.put(`http://localhost:8080/user/${id}`, user);
+        await axios.put(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`, user);
         console.log(user);
         navigate("/");
     }
@@ -33,7 +33,7 @@ function Logout() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       const loadUser = async () => {
-        const result = await axios.get(`http://localhost:8080/user/${id}`);
+        const result = await axios.get(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`);
         setUser(result.data);
       };
   return (

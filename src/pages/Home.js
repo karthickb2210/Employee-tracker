@@ -14,7 +14,7 @@ export default function Home() {
 
   const loadUsers = async () => {
     
-    const result = await axios.get("http://localhost:8080/users");
+    const result = await axios.get("https://employee-tracker-backend-production-b1a1.up.railway.app/users");
     
     setUsers(result.data);
     
@@ -24,7 +24,7 @@ export default function Home() {
   const deleteUser = async (id) => {
     let pass = prompt("Enter the password :")
     if(pass === "abc"){
-      await axios.delete(`http://localhost:8080/user/${id}`);
+      await axios.delete(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`);
       loadUsers();
     }else{
       alert("Wrong password")

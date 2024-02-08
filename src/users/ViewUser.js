@@ -17,7 +17,7 @@ export default function ViewUser() {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8080/user/${id}`);
+    const result = await axios.get(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`);
     setUser(result.data);
   };
 
