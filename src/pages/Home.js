@@ -45,8 +45,6 @@ export default function Home() {
       return ans + " hrs";
       // return sub - s;
     }
-  
-    
   }
   return (
     <div className="container">
@@ -56,6 +54,7 @@ export default function Home() {
             <tr>
               <th scope="col">S.N</th>
               <th scope="col">Name</th>
+              <th scope="col">Date</th>
               <th scope="col">Log In Time</th>
               <th scope="col">Email</th>
               <th scope="col">Logout</th>
@@ -70,6 +69,7 @@ export default function Home() {
                   {index + 1}
                 </th>
                 <td>{user.name}</td>
+                <td>{user.date}</td>
                 <td>{user.inTime}</td>
                 <td>{user.email}</td>
                 <td>{user.logOut}</td>

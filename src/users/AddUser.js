@@ -8,6 +8,7 @@ export default function AddUser() {
   const [user, setUser] = useState({
     id:"",
     name: "",
+    date:"",
     inTime: "",
     logOut:"",
     email: "",
@@ -24,11 +25,21 @@ export default function AddUser() {
     let d = new Date();
     return d.toLocaleTimeString('it-IT');
   }
+  function currdate(){
+    let d = new Date();
+    var dd = String(d.getDate()).padStart(2, '0');
+  var mm = String(d.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = d.getFullYear();
+
+d = mm + '/' + dd + '/' + yyyy;
+return d; 
+  }
 
   const onSubmit = async (e) => {
-    console.log(currtime());
+    
     
     e.preventDefault();
+    setUser(user.date = currdate())
     setUser(user.inTime= currtime())
     await axios.post("https://employee-tracker-backend-production-b1a1.up.railway.app/user", user);
     navigate("/");
@@ -75,6 +86,7 @@ export default function AddUser() {
                 placeholder="Enter your LoginTime"
                 name="inTime"
                 value={inTime}
+                value={date}
                 onChange={(e) => onInputChange(e)}
               />
             </div> */}
