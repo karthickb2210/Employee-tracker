@@ -1,51 +1,44 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [users, setUsers] = useState([]);
 
-  const { id } = useParams();
-  console.log(id);
   useEffect(() => {
     loadUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    
   }, []);
 
   const loadUsers = async () => {
-    
     const result = await axios.get("https://employee-tracker-backend-production-b1a1.up.railway.app/users");
-    
     setUsers(result.data);
-    
   };
- 
-  
+
   const deleteUser = async (id) => {
-    let pass = prompt("Enter the password :")
-    if(pass === "abc"){
+    let pass = prompt("Enter the password :");
+    if (pass === "abc") {
       await axios.delete(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`);
       loadUsers();
-    }else{
-      alert("Wrong password")
+    } else {
+      alert("Wrong password");
     }
-    
   };
-  function findTime(s1,s2){
-    if(s2===""){
+
+  function findTime(s1, s2) {
+    if (s2 === "") {
       return s2;
-    }else{
-      let s  = s1.substr(0,2);
-      let sub = s2.substr(0,2);
-      let ans = sub-s;
-      if(ans<0){
-        return ans*(-1) + " hrs";
+    } else {
+      let s = s1.substr(0, 2);
+      let sub = s2.substr(0, 2);
+      let ans = sub - s;
+      if (ans < 0) {
+        return ans * -1 + " hrs";
       }
       return ans + " hrs";
-      // return sub - s;
     }
   }
+
   return (
     <div className="container">
       <div className="py-4">
@@ -73,13 +66,13 @@ export default function Home() {
                 <td>{user.inTime}</td>
                 <td>{user.email}</td>
                 <td>{user.logOut}</td>
-                <td>{findTime(user.inTime,user.logOut)}</td>
+                <td>{findTime(user.inTime, user.logOut)}</td>
                 <td>
                   <Link
                     className="btn btn-primary mx-2"
                     to={`/viewuser/${user.id}`}
                   >
-                    View
+                    View Work Done
                   </Link>
                   {/* <Link
                     className="btn btn-outline-primary mx-2"
@@ -94,11 +87,7 @@ export default function Home() {
                     Delete
                   </button>
                   <Link to={`/logoutuser/${user.id}`}>
-                  <button
-                    className="btn btn-danger mx-2"
-                  >
-                    Logout
-                  </button>
+                    <button className="btn btn-danger mx-2">Logout</button>
                   </Link>
                 </td>
               </tr>

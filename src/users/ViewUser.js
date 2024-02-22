@@ -32,20 +32,24 @@ export default function ViewUser() {
               Details of user id : {user.id}
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  <b>Name:</b>
+                  <b>Name: </b>
                   {user.name}
                 </li>
                 <li className="list-group-item">
-                  <b>In Time:</b>
+                  <b>In Time: </b>
                   {user.inTime}
                 </li>
                 <li className="list-group-item">
-                  <b>Out Time:</b>
+                  <b>Out Time: </b>
                   {user.logOut}
                 </li>
                 <li className="list-group-item">
-                  <b>Email:</b>
+                  <b>Email: </b>
                   {user.email}
+                </li>
+                <li className="list-group-item">
+        <b>Work Done : </b>
+        {user.workdone}
                 </li>
               </ul>
             </div>
@@ -53,6 +57,7 @@ export default function ViewUser() {
           <Link className="btn btn-primary my-2" to={"/"}>
             Back to Home
           </Link>
+          
         </div>
       </div>
     </div>

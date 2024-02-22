@@ -1,0 +1,20 @@
+.pos{
+    margin-left: 300px;
+    margin-right: 300px;
+}
+.con{
+    justify-content: start;
+    text-align: start;
+    max-width: 700px;
+    margin-top: 30px;
+    margin-left: 110px;
+}
+.btnpos{
+    justify-content: start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* CSS FOR POSTFORM */
+

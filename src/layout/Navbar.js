@@ -20,10 +20,16 @@ export default function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-
+          <Link className="btn btn-outline-light" to="/tickets">
+            Current Tickets
+          </Link>
+          <Link className="btn btn-outline-light" to="/leaverequests">
+            Apply Leave
+          </Link>
           <Link className="btn btn-outline-light" to="/adduser">
             Add Login
           </Link>
+         
         </div>
       </nav>
     </div>
