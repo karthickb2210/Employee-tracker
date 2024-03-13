@@ -18,14 +18,14 @@ function Logout() {
       };
       async function handlesubmit(){
         setFilled(true);
-        await axios.put(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`, user);
+        await axios.put(`https://employee-check.onrender.com/user/${id}`, user);
         //navigate("/");
         
       }
     const {id} = useParams();
     async function handlelogout(id){
         user.logOut = currtime();
-        await axios.put(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`, user);
+        await axios.put(`https://employee-check.onrender.com/user/${id}`, user);
         navigate("/");
     }
     function currtime(){
@@ -38,7 +38,7 @@ function Logout() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       const loadUser = async () => {
-        const result = await axios.get(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`);
+        const result = await axios.get(`https://employee-check.onrender.com/user/${id}`);
         setUser(result.data);
       };
       const [filled,setFilled] = useState(false);

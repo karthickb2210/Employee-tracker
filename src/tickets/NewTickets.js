@@ -19,7 +19,7 @@ function NewTickets() {
   const onsubmit = async (e) => {
     console.log(ticket);
     e.preventDefault();
-    await axios.post("https://employee-tracker-backend-production-b1a1.up.railway.app/ticket", ticket);
+    await axios.post("https://employee-check.onrender.com/ticket", ticket);
     navigate("/tickets");
   };
 

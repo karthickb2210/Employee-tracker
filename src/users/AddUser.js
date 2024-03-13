@@ -41,7 +41,7 @@ return d;
     e.preventDefault();
     setUser(user.date = currdate())
     setUser(user.inTime= currtime())
-    await axios.post("https://employee-tracker-backend-production-b1a1.up.railway.app/user", user);
+    await axios.post("https://employee-check.onrender.com/user", user);
     navigate("/");
   };
 

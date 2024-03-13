@@ -11,14 +11,14 @@ export default function Home() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("https://employee-tracker-backend-production-b1a1.up.railway.app/users");
+    const result = await axios.get("https://employee-check.onrender.com/users");
     setUsers(result.data);
   };
 
   const deleteUser = async (id) => {
     let pass = prompt("Enter the password :");
     if (pass === "abc") {
-      await axios.delete(`https://employee-tracker-backend-production-b1a1.up.railway.app/user/${id}`);
+      await axios.delete(`https://employee-check.onrender.com/user/${id}`);
       loadUsers();
     } else {
       alert("Wrong password");

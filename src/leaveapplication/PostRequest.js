@@ -20,7 +20,7 @@ function PostRequest() {
     const onsubmit = async (e) => {
       console.log(leave);
       e.preventDefault();
-      await axios.post("https://employee-tracker-backend-production-b1a1.up.railway.app/leave", leave);
+      await axios.post("https://employee-check.onrender.com/leave", leave);
       navigate("/");
     };
   

@@ -8,11 +8,11 @@ function ViewTickets() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   async function gettickets() {
-    const tic = await axios.get("https://employee-tracker-backend-production-b1a1.up.railway.app/tickets");
+    const tic = await axios.get("https://employee-check.onrender.com/tickets");
     setTicket(tic.data);
   }
   async function deleteTicket(id) {
-    await axios.delete(`https://employee-tracker-backend-production-b1a1.up.railway.app/tickets/${id}`);
+    await axios.delete(`https://employee-check.onrender.com/tickets/${id}`);
     gettickets();
   }
   return (

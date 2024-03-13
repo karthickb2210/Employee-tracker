@@ -11,10 +11,10 @@ function ViewRequest() {
   async function handleapprove(i){
     let ans = prompt("Enter Your Hd id :")
     if(ans==="12"){
-      const val = await axios.get(`https://employee-tracker-backend-production-b1a1.up.railway.app/leave/${i}`);
+      const val = await axios.get(`https://employee-check.onrender.com/leave/${i}`);
       const res = val.data;
       res.status = true
-      await axios.put(`https://employee-tracker-backend-production-b1a1.up.railway.app/leave/${i}`,res)
+      await axios.put(`https://employee-check.onrender.com/leave/${i}`,res)
       getdata()
     }else{
       alert("Invalid hr Id")
@@ -23,21 +23,21 @@ function ViewRequest() {
   async function handlereject(i){
     let ans = prompt("Enter Your Hd id :")
     if(ans==="12"){
-      const val = await axios.get(`https://employee-tracker-backend-production-b1a1.up.railway.app/leave/${i}`);
+      const val = await axios.get(`https://employee-check.onrender.com/leave/${i}`);
       const res = val.data;
       res.status = false
-      await axios.put(`https://employee-tracker-backend-production-b1a1.up.railway.app/leave/${i}`,res)
+      await axios.put(`https://employee-check.onrender.com/leave/${i}`,res)
       getdata()
     }else{
       alert("Invalid hr Id")
     }
   }
   async function getdata() {
-    const res = await axios.get("https://employee-tracker-backend-production-b1a1.up.railway.app/leaves");
+    const res = await axios.get("https://employee-check.onrender.com/leaves");
     setLeaves(res.data);
   }
   async function handledel(i){
-      await axios.delete(`https://employee-tracker-backend-production-b1a1.up.railway.app/leave/${i}`)
+      await axios.delete(`https://employee-check.onrender.com/leave/${i}`)
       getdata()
   }
   
