@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Loader from "./Loader";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+  const [load,setLoad] = useState(true);
   const [users, setUsers] = useState([]);
-
+  const url = "https://employee-check.onrender.com/";
   useEffect(() => {
     loadUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("https://employee-check.onrender.com/users");
+    const result = await axios.get(`${url}users`);
     setUsers(result.data);
+    setLoad(false)
   };
 
   const deleteUser = async (id) => {
     let pass = prompt("Enter the password :");
     if (pass === "abc") {
-      await axios.delete(`https://employee-check.onrender.com/user/${id}`);
+      await axios.delete(`${url}user/${id}`);
       loadUsers();
     } else {
       alert("Wrong password");
@@ -42,6 +45,8 @@ export default function Home() {
   return (
     <div className="container">
       <div className="py-4">
+      {
+            load ?  <Loader/> :
         <table className="table border shadow">
           <thead>
             <tr>
@@ -55,7 +60,7 @@ export default function Home() {
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody>  <>
             {users.map((user, index) => (
               <tr>
                 <th scope="row" key={index}>
@@ -92,8 +97,12 @@ export default function Home() {
                 </td>
               </tr>
             ))}
+            </>
+            
+            
           </tbody>
         </table>
+}
       </div>
     </div>
   );

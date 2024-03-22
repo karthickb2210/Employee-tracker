@@ -8,7 +8,7 @@ export default function ViewUser() {
     username: "",
     email: "",
   });
-
+  const url = "https://employee-check.onrender.com/";
   const { id } = useParams();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function ViewUser() {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`https://employee-check.onrender.com/user/${id}`);
+    const result = await axios.get(`${url}user/${id}`);
     setUser(result.data);
   };
 

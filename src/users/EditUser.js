@@ -6,7 +6,7 @@ export default function EditUser() {
   let navigate = useNavigate();
 
   const { id } = useParams();
-
+  const url = "https://employee-check.onrender.com/";
   const [user, setUser] = useState({
     name: "",
     username: "",
@@ -26,12 +26,12 @@ export default function EditUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`https://employee-check.onrender.com/user/${id}`, user);
+    await axios.put(`${url}user/${id}`, user);
     navigate("/");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`https://employee-check.onrender.com/user/${id}`);
+    const result = await axios.get(`${url}user/${id}`);
     setUser(result.data);
   };
 

@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 function Logout() {
     const navigate = useNavigate();
-
+    const url = "https://employee-check.onrender.com/";
     const [user, setUser] = useState({
         name: "",
         inTime: "",
@@ -18,14 +18,14 @@ function Logout() {
       };
       async function handlesubmit(){
         setFilled(true);
-        await axios.put(`https://employee-check.onrender.com/user/${id}`, user);
+        await axios.put(`${url}user/${id}`, user);
         //navigate("/");
         
       }
     const {id} = useParams();
     async function handlelogout(id){
         user.logOut = currtime();
-        await axios.put(`https://employee-check.onrender.com/user/${id}`, user);
+        await axios.put(`${url}user/${id}`, user);
         navigate("/");
     }
     function currtime(){
@@ -38,7 +38,7 @@ function Logout() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       const loadUser = async () => {
-        const result = await axios.get(`https://employee-check.onrender.com/user/${id}`);
+        const result = await axios.get(`${url}user/${id}`);
         setUser(result.data);
       };
       const [filled,setFilled] = useState(false);

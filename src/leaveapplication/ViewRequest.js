@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./cardd.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+const url = "https://employee-check.onrender.com/";
 function ViewRequest() {
   const [leaves, setLeaves] = useState([]);
   useEffect(() => {
@@ -10,11 +11,11 @@ function ViewRequest() {
   }, []);
   async function handleapprove(i){
     let ans = prompt("Enter Your Hd id :")
-    if(ans==="12"){
-      const val = await axios.get(`https://employee-check.onrender.com/leave/${i}`);
+    if(ans==="123"){
+      const val = await axios.get(`${url}leave/${i}`);
       const res = val.data;
       res.status = true
-      await axios.put(`https://employee-check.onrender.com/leave/${i}`,res)
+      await axios.put(`${url}leave/${i}`,res)
       getdata()
     }else{
       alert("Invalid hr Id")
@@ -22,22 +23,22 @@ function ViewRequest() {
   }
   async function handlereject(i){
     let ans = prompt("Enter Your Hd id :")
-    if(ans==="12"){
-      const val = await axios.get(`https://employee-check.onrender.com/leave/${i}`);
+    if(ans==="123"){
+      const val = await axios.get(`${url}leave/${i}`);
       const res = val.data;
       res.status = false
-      await axios.put(`https://employee-check.onrender.com/leave/${i}`,res)
+      await axios.put(`${url}leave/${i}`,res)
       getdata()
     }else{
       alert("Invalid hr Id")
     }
   }
   async function getdata() {
-    const res = await axios.get("https://employee-check.onrender.com/leaves");
+    const res = await axios.get(`${url}leaves`);
     setLeaves(res.data);
   }
   async function handledel(i){
-      await axios.delete(`https://employee-check.onrender.com/leave/${i}`)
+      await axios.delete(`${url}leave/${i}`)
       getdata()
   }
   

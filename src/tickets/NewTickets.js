@@ -3,6 +3,7 @@ import "./tickets.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 function NewTickets() {
+  const url = "https://employee-check.onrender.com/";
   const navigate = useNavigate();
   const [ticket, setTicket] = useState({
     id: "",
@@ -19,7 +20,7 @@ function NewTickets() {
   const onsubmit = async (e) => {
     console.log(ticket);
     e.preventDefault();
-    await axios.post("https://employee-check.onrender.com/ticket", ticket);
+    await axios.post(`${url}ticket"`, ticket);
     navigate("/tickets");
   };
 

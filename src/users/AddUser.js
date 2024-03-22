@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function AddUser() {
   let navigate = useNavigate();
-
+  const url = "https://employee-check.onrender.com/";
   const [user, setUser] = useState({
     id:"",
     name: "",
@@ -41,7 +41,7 @@ return d;
     e.preventDefault();
     setUser(user.date = currdate())
     setUser(user.inTime= currtime())
-    await axios.post("https://employee-check.onrender.com/user", user);
+    await axios.post(`${url}user`, user);
     navigate("/");
   };
 

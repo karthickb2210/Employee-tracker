@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 function ViewTickets() {
+  const url = "https://employee-check.onrender.com/"
   const [ticket, setTicket] = useState([]);
   useEffect(() => {
     gettickets();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   async function gettickets() {
-    const tic = await axios.get("https://employee-check.onrender.com/tickets");
+    const tic = await axios.get(`${url}tickets`);
     setTicket(tic.data);
   }
   async function deleteTicket(id) {
-    await axios.delete(`https://employee-check.onrender.com/tickets/${id}`);
+    await axios.delete(`${url}tickets/${id}`);
     gettickets();
   }
   return (
