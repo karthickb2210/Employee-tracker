@@ -77,7 +77,7 @@ export default function Home() {
                     className="btn btn-primary mx-2"
                     to={`/viewuser/${user.id}`}
                   >
-                    View Work Done
+                    View Work
                   </Link>
                   {/* <Link
                     className="btn btn-outline-primary mx-2"
