@@ -20,7 +20,7 @@ function NewTickets() {
   const onsubmit = async (e) => {
     console.log(ticket);
     e.preventDefault();
-    await axios.post(`${url}ticket"`, ticket);
+    await axios.post(`${url}ticket`, ticket);
     navigate("/tickets");
   };
 
