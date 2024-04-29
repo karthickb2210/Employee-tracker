@@ -9,7 +9,7 @@ function ViewTickets() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   async function gettickets() {
-    const tic = await axios.get(`${url}ticket`);
+    const tic = await axios.get(`${url}tickets`);
     setTicket(tic.data);
   }
   async function deleteTicket(id) {
